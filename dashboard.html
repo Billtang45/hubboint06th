@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Nexus Marketing</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <nav class="dashboard-nav">
+                <a href="#" class="logo">Nexus<span>Marketing</span></a>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Campaigns</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-content">
+        <div class="container">
+            <div class="dashboard-welcome">
+                <h1>Welcome to Your Marketing Dashboard</h1>
+                <p>Manage your campaigns, track performance, and grow your business.</p>
+            </div>
+
+            <div class="dashboard-features">
+                <div class="feature-card">
+                    <h3>Campaign Builder</h3>
+                    <p>Create and manage your marketing campaigns with our easy-to-use tools.</p>
+                    <a href="#">Start Campaign <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <h3>Performance Analytics</h3>
+                    <p>Track your campaign performance with real-time analytics and reports.</p>
+                    <a href="#">View Analytics <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <h3>Audience Insights</h3>
+                    <p>Understand your audience better with detailed demographics and behavior data.</p>
+                    <a href="#">Explore Insights <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <h3>Content Creator</h3>
+                    <p>Design stunning marketing materials with our built-in content creator.</p>
+                    <a href="#">Create Content <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <h3>Automation Tools</h3>
+                    <p>Save time with automated email sequences and social media posting.</p>
+                    <a href="#">Set Up Automation <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <h3>Competitor Analysis</h3>
+                    <p>See how you stack up against competitors and identify opportunities.</p>
+                    <a href="#">Analyze Competitors <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/auth.js"></script>
+    <script>
+        // Simple logout functionality
+        document.getElementById('logout').addEventListener('click', function(e) {
+            e.preventDefault();
+            // In a real app, you would clear the session/token here
+            window.location.href = 'index.html';
+        });
+
+        // Simple protection - in a real app you would check for a valid session/token
+        // This is just for demonstration
+        const protectedPages = ['dashboard.html'];
+        if (protectedPages.includes(window.location.pathname.split('/').pop())) {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>
